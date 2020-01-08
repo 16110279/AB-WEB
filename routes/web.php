@@ -14,9 +14,3 @@
 Route::get('/', function () {
     return view('main');
 });
-// Route::get('/berita', function () {
-//     return view('berita');
-// });
-
-Route::get('/berita', 'MainController@berita');
-Route::get('/kiprah-alumni', 'MainController@index');
