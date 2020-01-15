@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('main');
 });
+
+Route::get('/bkk','BkkController@index');
+Route::get('/bkk/manage-lowongan','BkkController@lowongan');
+Route::get('/bkk/statistik','BkkController@statistik'); 
+Route::get('/bkk/profile','BkkController@profile');
+Route::get('/bkk/pengaturan','BkkController@pengaturan');
+
