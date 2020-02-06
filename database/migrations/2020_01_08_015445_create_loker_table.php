@@ -18,7 +18,8 @@ class CreateLokerTable extends Migration
             $table->string('judul');
             $table->string('lokasi');
             $table->string('deskripsi');
-            $table->integer('kuota');
+            $table->string('slug');
+            $table->string('nama_perusahaan');
             $table->enum('jenis', ['Internal', 'Umum']);
             $table->enum('status', ['Aktif', 'Tidak Aktif']);
             $table->date('deadline');

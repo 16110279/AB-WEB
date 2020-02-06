@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Loker;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -14,7 +14,10 @@ class MainController extends Controller
     public function index()
     {
         //
-        return view('public.index');
+        $nav = 'Home';
+        $title = 'Alumni Berbagi';
+        $loker = Loker::where('jenis','Umum')->get();
+        return view('public.index', compact('loker','title','nav'));
     }
 
     /**
@@ -83,8 +86,47 @@ class MainController extends Controller
         //
     }
 
-    public function berita()
+    public function slug($slug)
     {
-        return view('berita');
+        $loker = Loker::where('slug',$slug)->first();
+        $title = 'Detail Lowongan - ' .$loker->judul;
+        // echo $loker->judul;
+        
+        if(empty($loker))
+        {
+            return abort(404);
+        }
+        else
+        {
+        return view('public.job-detail', compact('loker','title'));
+        }
+
     }
+
+    public function about()
+    {
+        $title = 'About Alumni Berbagi';
+        $nav = 'About';
+        return view('public.about', compact('title','nav'));
+    }
+    public function blog()
+    {
+        $title = 'Blog Alumni Berbagi';
+        $nav = 'Blog';
+        return view('public.blog', compact('title','nav'));
+    }
+    public function contact()
+    {
+        $title = 'Contact Alumni Berbagi';
+        $nav = 'Contact';
+        return view('public.contact', compact('title','nav'));
+    }
+    public function loker()
+    {
+        $title = 'Loker Alumni Berbagi';
+        $nav = 'Lowongan';
+        return view('public.loker', compact('title','nav'));
+    }
+
+
 }

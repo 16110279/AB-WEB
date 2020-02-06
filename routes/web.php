@@ -18,6 +18,11 @@
 
 
 Route::get('/','MainController@index');
+Route::get('/about','MainController@about');
+Route::get('/lowongan-pekerjaan','MainController@loker');
+Route::get('/blog','MainController@blog');
+Route::get('/contact','MainController@contact');
+Route::get('/lowongan-pekerjaan/{slug}','MainController@slug');
 
 Route::get('/bkk','BkkController@index');
 
