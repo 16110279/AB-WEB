@@ -88,6 +88,7 @@ class MainController extends Controller
 
     public function slug($slug)
     {
+        $nav = 'Lowongan';
         $loker = Loker::where('slug',$slug)->first();
         $title = 'Detail Lowongan - ' .$loker->judul;
         // echo $loker->judul;
@@ -98,7 +99,7 @@ class MainController extends Controller
         }
         else
         {
-        return view('public.job-detail', compact('loker','title'));
+        return view('public.job-detail', compact('loker','title','nav'));
         }
 
     }
